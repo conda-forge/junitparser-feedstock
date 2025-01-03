@@ -6,24 +6,26 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/junitparser-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/junitparser-{{ version }}.tar.gz
   sha256: b05e89c27e7b74b3c563a078d6e055d95cf397444f8f689b0ca616ebda0b3c65
 
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
-  number: 0
+  number: 1
   entry_points:
     - junitparser = junitparser.cli:main
 
 requirements:
   host:
-    - python >=3.6
+    - python {{ python_min }}
     - pip
+    - setuptools >=44
+    - wheel >=0.37
     # used in setup.py
     - future
   run:
-    - python >=3.6
+    - python >={{ python_min }}
     - future
 
 test:
@@ -34,6 +36,7 @@ test:
     - junitparser --help
   requires:
     - pip
+    - python {{ python_min }}
 
 about:
   home: https://github.com/weiwei/junitparser
