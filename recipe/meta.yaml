@@ -20,6 +20,8 @@ requirements:
   host:
     - python {{ python_min }}
     - pip
+    - setuptools >=44
+    - wheel >=0.37
     # used in setup.py
     - future
   run:
