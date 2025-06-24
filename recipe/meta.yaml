@@ -1,5 +1,5 @@
 {% set name = "junitparser" %}
-{% set version = "4.0.1" %}
+{% set version = "4.0.2" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/junitparser-{{ version }}.tar.gz
-  sha256: 00be98abaddef8c135db6bda3a52beb801b9b0f698da8cb1572ac2091ceae668
+  sha256: d5d07cece6d4a600ff3b7b96c8db5ffa45a91eed695cb86c45c3db113c1ca0f8
 
 build:
   noarch: python
